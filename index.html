@@ -5,10 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lego Avengers Memory Match</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="script.js"></script>
+    <link rel="stylesheet" href="animate.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Anton|Orbitron|Cinzel|Righteous|Poiret+One|Montserrat|Open+Sans|Helvetica+Neue">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-
+    <div class="logo">
+        <h1>MARVEL</h1>
+        <h3>MEMORY MATCH</h3>
+    </div>
+    <div class="player_hero">
+        <img class="captain_america grayscale animated fadeInLeftBig" src="assets/captain_america.png">
+    </div>
+    <div class="player_villain">
+        <img class="ultron grayscale animated fadeInRightBig" src="assets/ultron.png">
+    </div>
+    <div class="select_hero animated fadeInLeftBig" onclick="hero_selected()">
+        <p>SELECT: HERO</p>
+    </div>
+    <div class="select_villain animated fadeInLeftBig" onclick="villain_selected()">
+        <p>SELECT: VILLAIN</p>
+    </div>
+    <div class="select_play animated fadeInLeftBig">
+        <p>PLAY</p>
+    </div>
 </body>
 </html>

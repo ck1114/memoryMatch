@@ -1,3 +1,153 @@
+@font-face {
+    font-family: bebas;
+    src: url('fonts/BEBAS.ttf') format('truetype');
+}
 body{
-    background-image: url("assets/load_page_background.jpg");
+    margin: 0;
+    background: url("assets/load_page_background.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+}
+/*--------------------------css effects---------------------------*/
+.grayscale {
+    filter: grayscale(70%);
+    -webkit-filter: grayscale(70%);
+}
+
+.dropshadow {
+    filter: drop-shadow(0px 0px 20px white);
+    -webkit-filter: drop-shadow(0px 0px 20px white);
+}
+
+.flash {
+    -webkit-animation: blinker 1s linear infinite;
+    -o-animation: blinker 1s linear infinite;;
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% { opacity: 0.3; }
+}
+
+.logo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeIn 2s;
+    animation-timing-function: ease-in;
+}
+
+.logo h1{
+    font-family: BEBAS, sans-serif;
+    color: white;
+    font-size: 10vmax;
+    letter-spacing: -5px;
+    margin: 0;
+}
+
+.logo h3{
+    font-family: BEBAS, sans-serif;
+    color: white;
+    font-size: 2vmax;
+    letter-spacing: 1.5vw;
+    margin: 0;
+    text-align: center;
+    border-top: 0.3vmax solid white;
+    border-bottom: 0.3vmax solid white;
+}
+
+.player_hero{
+    width: 50%;
+    height: 100%;
+    display: inline-block;
+    float: left;
+}
+
+.player_villain {
+    width: 50%;
+    height: 100%;
+    display: inline-block;
+}
+
+.captain_america, .ultron{
+    animation-delay: 2s;
+}
+
+/*game menu*/
+.select_game_option {
+    font-family: BEBAS, sans-serif;
+    position: absolute;
+    top: 35%;
+}
+
+.select_hero {
+    font-family: BEBAS, sans-serif;
+    position: absolute;
+    top: 35%;
+    height: 40px;
+    background-color: rgba(3, 78, 136, 0.7);
+    padding: 10px 200px 10px 50px;
+    margin-bottom: 20px;
+    margin-left: 1%;
+    animation-delay: 2.5s;
+}
+
+.select_villain {
+    font-family: BEBAS, sans-serif;
+    position: absolute;
+    top: 45%;
+    height: 40px;
+    background-color: red;
+    padding: 10px 110px 10px 50px;
+    margin-bottom: 20px;
+    margin-left: 1%;
+    animation-delay: 3s;
+}
+
+.select_play {
+    font-family: BEBAS, sans-serif;
+    position: absolute;
+    top: 55%;
+    height: 40px;
+    background-color: dimgray;
+    padding: 10px 120px 10px 50px;
+    margin-bottom: 20px;
+    margin-left: 1%;
+    animation-delay: 3.5s;
+}
+
+.select_hero p, .select_villain p, .select_play p {
+    color: white;
+    margin: 10px 20px 20px 0px;
+    text-transform: uppercase;
+    font-size: 18px;
+    position: relative;
+}
+
+.select_hero:before, .select_villain:before, .select_play:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 60px solid rgba(3, 78, 136, 0.7);
+    border-right: 60px solid transparent;
+    position: absolute;
+    top: 0;
+    left: 100%;
+}
+
+
+.select_hero:before {
+    border-top: 60px solid rgba(3, 78, 136, 0.7);
+}
+
+.select_villain:before {
+    border-top: 60px solid red;
+}
+
+.select_play:before {
+    border-top: 60px solid dimgray;
 }
