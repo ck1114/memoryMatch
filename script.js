@@ -20,4 +20,5 @@ function villain_selected(){
 
 function play_game(){
     $('.main_page').addClass('animated fadeOut')
+
 }
