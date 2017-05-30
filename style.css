@@ -151,3 +151,13 @@ body{
 .select_play:before {
     border-top: 60px solid dimgray;
 }
+
+/*-----------------------------Hero Game Play--------------------------*/
+.hero_background {
+    background-image: url("assets/hero_background.jpg");
+}
+
+/*-----------------------------Villain Game Play--------------------------*/
+.villain_background {
+    background-image: url("assets/villain_background.jpg");
+}
