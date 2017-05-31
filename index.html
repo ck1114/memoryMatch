@@ -11,11 +11,11 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+    <div class="logo">
+        <h1>MARVEL</h1>
+        <h3>MEMORY MATCH</h3>
+    </div>
     <div class="loading_screen">
-        <div class="logo">
-            <h1>MARVEL</h1>
-            <h3>MEMORY MATCH</h3>
-        </div>
         <div class="player_hero">
             <img class="captain_america grayscale animated fadeInLeftBig" src="assets/captain_america.png">
         </div>
@@ -32,6 +32,20 @@
             <p>PLAY</p>
         </div>
     </div>
-    <div
+    <div class="stats_container">
+        <div class="games_played">
+            <div class="label">Games Played</div>
+            <div class="value dropshadow_2"></div>
+        </div>
+        <div class="attempts">
+            <div class="label">Attempts</div>
+            <div class="value dropshadow_2">10</div>
+        </div>
+        <div class="accuracy">
+            <div class="label">Accuracy</div>
+            <div class="value dropshadow_2"></div>
+        </div>
+        <button class="reset">Reset Game</button>
+    </div>
 </body>
 </html>

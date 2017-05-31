@@ -11,7 +11,7 @@ body{
     background-size: cover;
     overflow: hidden;
 }
-/*--------------------------css effects---------------------------*/
+/*=============================CSS EFFECTS==========================*/
 .grayscale {
     filter: grayscale(70%);
     -webkit-filter: grayscale(70%);
@@ -20,6 +20,11 @@ body{
 .dropshadow {
     filter: drop-shadow(0px 0px 20px white);
     -webkit-filter: drop-shadow(0px 0px 20px white);
+}
+
+.dropshadow_2 {
+    filter: drop-shadow(0px 0px 3px white);
+    -webkit-filter: drop-shadow(0px 0px 3px white);
 }
 
 .flash {
@@ -31,6 +36,9 @@ body{
 @keyframes blinker {
     50% { opacity: 0.3; }
 }
+
+/*=============================LOADING SCREEN==========================*/
+/*-----------------------------logo-----------------------------*/
 
 .logo{
     position: absolute;
@@ -77,13 +85,7 @@ body{
     animation-delay: 2s;
 }
 
-/*game menu*/
-.select_game_option {
-    font-family: BEBAS, sans-serif;
-    position: absolute;
-    top: 35%;
-}
-
+/*-----------------------------Game Menu/Option--------------------------*/
 .select_hero {
     font-family: BEBAS, sans-serif;
     position: absolute;
@@ -152,6 +154,7 @@ body{
     border-top: 60px solid dimgray;
 }
 
+/*=============================GAME SCREEN==========================*/
 /*-----------------------------Hero Game Play--------------------------*/
 .hero_background {
     background-image: url("assets/hero_background.jpg");
@@ -160,4 +163,39 @@ body{
 /*-----------------------------Villain Game Play--------------------------*/
 .villain_background {
     background-image: url("assets/villain_background.jpg");
+}
+
+/*-----------------------------Stats Container--------------------------*/
+.stats_container {
+    position: absolute;
+    top: 35%;
+    left: 1%;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 32%;
+    box-shadow: 0px 0px 20px #888888;
+}
+
+.label {
+    font-family: BEBAS, sans-serif;
+    color: #ff4f4f;
+    font-size: 1.5vmax;
+    letter-spacing: 1.5vw;
+    text-align: center;
+    border-top: 0.2vmax solid #ff4f4f;
+    border-bottom: 0.2vmax solid #ff4f4f;
+    margin-bottom: 2%;
+    box-shadow: 0px 0px 10px white;
+}
+
+.value {
+    width: auto;
+    height: 9vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 3vmax;
+    font-weight: 700;
+    font-family: orbitron, sans-serif;
 }
