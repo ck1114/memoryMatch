@@ -179,7 +179,7 @@ body{
     font-family: BEBAS, sans-serif;
     color: #ff4f4f;
     font-size: 1.5vmax;
-    letter-spacing: 1.5vw;
+    letter-spacing: 1vw;
     text-align: center;
     border-top: 0.2vmax solid #ff4f4f;
     border-bottom: 0.2vmax solid #ff4f4f;
@@ -198,4 +198,21 @@ body{
     font-size: 3vmax;
     font-weight: 700;
     font-family: orbitron, sans-serif;
+}
+
+button.reset {
+    width: 100%;
+    box-shadow: 0px 0px 20px #888888;
+    background-color: #2e2f2f;
+    color: white;
+    font-family: bebas, sans-serif;
+    letter-spacing: 1vw;
+    font-size: 1.5vmax;
+    border-radius: 4px;
+    border-width: 4px;
+    border-color: #1f2123;
+}
+
+button:focus{
+    outline: none;
 }

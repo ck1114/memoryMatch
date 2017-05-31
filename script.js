@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $('.logo').delay(2000).animate({ left: '17%', top:'15%'}, 1000);
+    $('.stats_container').hide();
 });
 
 var game_mode;
@@ -30,5 +31,6 @@ function play_game(){
     else if (game_mode === 'villain'){
         $('body').addClass('villain_background');
     }
+    $('.stats_container').show();
 }
 
