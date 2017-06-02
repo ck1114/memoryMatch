@@ -10,7 +10,7 @@ function hero_selected(){
     $('.select_villain').removeClass('dropshadow');
     $('.select_hero').addClass('dropshadow');
     $('.captain_america').removeClass('grayscale').addClass('dropshadow');
-    $('.select_play').addClass('flash').bind('click', play_game);
+    $('.select_play').bind('click', play_game);
     game_mode = 'hero';
 }
 
@@ -18,8 +18,8 @@ function villain_selected(){
     $('.captain_america').addClass('grayscale').removeClass('dropshadow');
     $('.select_hero').removeClass('dropshadow');
     $('.select_villain').addClass('dropshadow');
-    $('.ultron').removeClass("grayscale").addClass('dropshadow');
-    $('.select_play').addClass('flash').bind('click', play_game);
+    $('.ultron').removeClass('grayscale').addClass('dropshadow');
+    $('.select_play').bind('click', play_game);
     game_mode = 'villain';
 }
 
@@ -32,6 +32,7 @@ function play_game(){
         $('body').addClass('villain_background');
     }
     $('.stats_container').show();
+    display_stats();
     create_cards();
     $('.card').click(card_clicked);
 }
@@ -47,7 +48,6 @@ function create_cards() {
     }
 
     cards.sort(function(a, b){return 0.5 - Math.random()});
-    console.log(cards);
 
     for(var j=0; j<7; j++){
         for(var k=1; k<5; k++){
@@ -62,19 +62,76 @@ function create_cards() {
 //GAME OPERATION
 var first_card_clicked = null;
 var second_card_clicked = null;
-var total_possible_matches = 9;
+var total_possible_matches = 14;
 var match_counter = 0;
 var matches = 0;
 var attempts = 0;
 var accuracy = 0;
 var games_played = 0;
 
-function card_clicked() {
-    if($(this).hasClass("already_clicked")){
-        return;
-    }
-    if
 
+function display_stats(){
+    $(".games_played .value").text(games_played);
+    $(".attempts .value").text(attempts);
+    $(".accuracy .value").text(accuracy+"%");
 }
 
+function card_clicked() {
+    if($(this).hasClass("matched")){
+        return;
+    }
+    if($(this).find('.back').css('display') == 'none'){
+        return;
+    }
+    if(first_card_clicked===null){
+        first_card_clicked= $(this);
+        $(first_card_clicked).find(".back").hide();
+    }
+    else {
+        second_card_clicked = $(this);
+        $(second_card_clicked).find(".back").hide();
+        var first_card_img = $(first_card_clicked).find("img.front").attr("src")
+        var second_card_img = $(second_card_clicked).find("img.front").attr("src")
+        attempts++;
+        if (first_card_img === second_card_img) {
+            $(first_card_clicked).addClass("matched");
+            $(second_card_clicked).addClass("matched");
+            first_card_clicked = null;
+            second_card_clicked = null;
+            match_counter += 1;
+            matches++;
+            accuracy = Math.floor((matches / attempts) * 100);
+            if(match_counter===total_possible_matches){
+                $(".card").hide();
+                var you_win = $("<h1>",{
+                    text: "YOU WIN!",
+                    class: "you_win",
+                });
+                $(".game_board").append(you_win);
+            }
+            else{
+                return "keep going";
+            }
+        }
+        else{
+            $(".card").off();
+            setTimeout(function(){
+                $(first_card_clicked).find(".back").show();
+                $(second_card_clicked).find(".back").show();
+                first_card_clicked = null;
+                second_card_clicked = null;
+                $(".card").click(card_clicked);
+            },1500);
+        }
+        display_stats();
+    }
+}
 
+function reset_game(){
+    games_played++;
+    accuracy=0;
+    matches=0;
+    attempts=0;
+    match_counter=0;
+    
+}
