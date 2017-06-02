@@ -104,18 +104,17 @@ function card_clicked() {
             second_card_clicked = null;
             match_counter += 1;
             matches++;
-            accuracy = Math.floor((matches / attempts) * 100);
-            if(match_counter===total_possible_matches){
-                $(".card").hide();
-                var you_win = $("<h1>",{
-                    text: "YOU WIN!",
-                    class: "you_win",
-                });
-                $(".game_board").append(you_win);
-            }
-            else{
-                return "keep going";
-            }
+            // if(match_counter===total_possible_matches){
+            //     $(".card").hide();
+            //     var you_win = $("<h1>",{
+            //         text: "YOU WIN!",
+            //         class: "you_win",
+            //     });
+            //     $(".game_board").append(you_win);
+            // }
+            // else{
+            //     return "keep going";
+            // }
         }
         else{
             $(".card").off();
@@ -127,6 +126,7 @@ function card_clicked() {
                 $(".card").click(card_clicked);
             },1500);
         }
+        accuracy = Math.floor((matches / attempts) * 100);
         display_stats();
     }
 }
@@ -137,5 +137,8 @@ function reset_game(){
     matches=0;
     attempts=0;
     match_counter=0;
-
+    display_stats();
+    $('.row').empty();
+    create_cards();
+    $('.card').click(card_clicked);
 }
