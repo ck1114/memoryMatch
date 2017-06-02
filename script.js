@@ -1,6 +1,7 @@
 $(document).ready(function(){
     $('.logo').delay(2000).animate({ left: '17%', top:'15%'}, 1000);
     $('.stats_container').hide();
+    // $('.logo_area').hide()
 });
 
 var game_mode;
@@ -32,6 +33,9 @@ function play_game(){
         $('body').addClass('villain_background');
     }
     $('.stats_container').show();
+    $('.logo_area').click(function(){
+        location.reload(true);
+    });
     display_stats();
     create_cards();
     $('.card').click(card_clicked);
@@ -133,5 +137,5 @@ function reset_game(){
     matches=0;
     attempts=0;
     match_counter=0;
-    
+
 }

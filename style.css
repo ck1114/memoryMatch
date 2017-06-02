@@ -243,7 +243,15 @@ a:link, a:visited{
 .villain_background {
     background-image: url("assets/villain_background.jpg");
 }
-
+/*------------------------Villain Game Play Option---------------------*/
+.logo_area{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 31vw;
+    height: 33vh;
+    opacity: 0;
+}
 /*-----------------------------Stats Container--------------------------*/
 .stats_container {
     position: absolute;
