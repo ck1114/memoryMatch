@@ -7,24 +7,27 @@ $(document).ready(function(){
 var game_mode;
 
 function hero_selected(){
+    $('.option_select_sound').trigger('play');
     $('.ultron').addClass('grayscale').removeClass('dropshadow');
     $('.select_villain').removeClass('dropshadow');
     $('.select_hero').addClass('dropshadow');
     $('.captain_america').removeClass('grayscale').addClass('dropshadow');
-    $('.select_play').bind('click', play_game);
+    $('.select_play').off('click', play_game).on('click', play_game);
     game_mode = 'hero';
 }
 
 function villain_selected(){
+    $('.option_select_sound').trigger('play');
     $('.captain_america').addClass('grayscale').removeClass('dropshadow');
     $('.select_hero').removeClass('dropshadow');
     $('.select_villain').addClass('dropshadow');
     $('.ultron').removeClass('grayscale').addClass('dropshadow');
-    $('.select_play').bind('click', play_game);
+    $('.select_play').off('click', play_game).on('click', play_game);
     game_mode = 'villain';
 }
 
 function play_game(){
+    $('.option_select_sound').trigger('play');
     $('.loading_screen').addClass('animated fadeOut')
     if(game_mode === 'hero'){
         $('body').addClass('hero_background');
@@ -88,6 +91,7 @@ function card_clicked() {
         return;
     }
     if(first_card_clicked===null){
+        $('.card_click_sound').trigger('play');
         first_card_clicked= $(this);
         $(first_card_clicked).find(".back").hide();
     }
@@ -98,6 +102,7 @@ function card_clicked() {
         var second_card_img = $(second_card_clicked).find("img.front").attr("src")
         attempts++;
         if (first_card_img === second_card_img) {
+            $('.match_sound').prop("volume", 0.2).trigger('play');
             $(first_card_clicked).addClass("matched");
             $(second_card_clicked).addClass("matched");
             first_card_clicked = null;
@@ -117,6 +122,7 @@ function card_clicked() {
             // }
         }
         else{
+            $('.error_sound').trigger('play');
             $(".card").off();
             setTimeout(function(){
                 $(first_card_clicked).find(".back").show();
