@@ -4,6 +4,8 @@
 }
 body{
     margin: 0;
+    width: 100vw;
+    height: 100vh;
     background: url("assets/load_page_background.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -148,15 +150,15 @@ a:link, a:visited{
 }
 
 .player_hero{
-    width: 50%;
-    height: 100%;
+    width: 50vw;
+    height: 100vh;
     display: inline-block;
     float: left;
 }
 
 .player_villain {
-    width: 50%;
-    height: 100%;
+    width: 50vw;
+    height: 100vh;
     display: inline-block;
 }
 
@@ -168,7 +170,7 @@ a:link, a:visited{
 .select_hero {
     font-family: BEBAS, sans-serif;
     position: absolute;
-    top: 35%;
+    top: 35vh;
     height: 40px;
     background-color: rgba(3, 78, 136, 0.7);
     padding: 10px 200px 10px 50px;
