@@ -120,6 +120,11 @@ a:link, a:visited{
 }
 /*=============================LOADING SCREEN==========================*/
 /*-----------------------------logo-----------------------------*/
+.loading_screen{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
 
 .logo{
     position: absolute;
@@ -150,19 +155,21 @@ a:link, a:visited{
 }
 
 .player_hero{
-    width: 50vw;
-    height: 100vh;
-    display: inline-block;
-    float: left;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 .player_villain {
-    width: 50vw;
-    height: 100vh;
-    display: inline-block;
+    position: absolute;
+    left: 35vw;
+    width: 100%;
+    height: 100%;
 }
 
 .captain_america, .ultron{
+    width: 100%;
+    height: auto;
     animation-delay: 2s;
 }
 
@@ -170,11 +177,10 @@ a:link, a:visited{
 .select_hero {
     font-family: BEBAS, sans-serif;
     position: absolute;
-    top: 35vh;
-    height: 40px;
+    top: 35%;
+    height: 8vh;
+    width: 22vw;
     background-color: rgba(3, 78, 136, 0.7);
-    padding: 10px 200px 10px 50px;
-    margin-bottom: 20px;
     margin-left: 1%;
     animation-delay: 2.5s;
 }
@@ -183,10 +189,9 @@ a:link, a:visited{
     font-family: BEBAS, sans-serif;
     position: absolute;
     top: 45%;
-    height: 40px;
+    height: 8vh;
+    width: 16vw;
     background-color: red;
-    padding: 10px 110px 10px 50px;
-    margin-bottom: 20px;
     margin-left: 1%;
     animation-delay: 3s;
 }
@@ -195,17 +200,16 @@ a:link, a:visited{
     font-family: BEBAS, sans-serif;
     position: absolute;
     top: 55%;
-    height: 40px;
+    height: 8vh;
+    width: 10vw;
     background-color: dimgray;
-    padding: 10px 120px 10px 50px;
-    margin-bottom: 20px;
     margin-left: 1%;
     animation-delay: 3.5s;
 }
 
 .select_hero p, .select_villain p, .select_play p {
     color: white;
-    margin: 10px 20px 20px 0px;
+    padding-left: 2vw;
     text-transform: uppercase;
     font-size: 18px;
     position: relative;
@@ -215,8 +219,8 @@ a:link, a:visited{
     content: '';
     width: 0;
     height: 0;
-    border-top: 60px solid rgba(3, 78, 136, 0.7);
-    border-right: 60px solid transparent;
+    border-top: 8vh solid rgba(3, 78, 136, 0.7);
+    border-right: 5vw solid transparent;
     position: absolute;
     top: 0;
     left: 100%;
@@ -224,15 +228,15 @@ a:link, a:visited{
 
 
 .select_hero:before {
-    border-top: 60px solid rgba(3, 78, 136, 0.7);
+    border-top: 8vh solid rgba(3, 78, 136, 0.7);
 }
 
 .select_villain:before {
-    border-top: 60px solid red;
+    border-top: 8vh solid red;
 }
 
 .select_play:before {
-    border-top: 60px solid dimgray;
+    border-top: 8vh solid dimgray;
 }
 
 /*=============================GAME SCREEN=============================*/
