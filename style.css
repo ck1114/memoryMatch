@@ -408,20 +408,11 @@ img.front {
     }
 }
 
-@media only screen and (max-width: 750px) and (orientation: landscape) {
-    .loading_screen, .stats_container, .game_board{
-        overflow: hidden;
-    }
+@media only screen and (orientation: landscape) {
     html{
         overflow: hidden;
     }
     body{
-        overflow-x: hidden;
-        overflow-y: hidden;
-    }
-
-    .player_villain img, .player_hero img{
-        position: fixed;
         overflow-x: hidden;
         overflow-y: hidden;
     }
