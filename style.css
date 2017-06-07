@@ -154,6 +154,7 @@ a:link, a:visited{
     border-bottom: 0.3vmax solid white;
 }
 
+/*---------------------------Game Play Option--------------------------*/
 .player_hero{
     position: absolute;
     width: 100%;
@@ -173,7 +174,6 @@ a:link, a:visited{
     animation-delay: 2s;
 }
 
-/*---------------------------Game Menu/Option--------------------------*/
 .select_hero {
     font-family: BEBAS, sans-serif;
     position: absolute;
@@ -346,14 +346,14 @@ img.front {
     background-color: rgba(0,0,0, 0.6);
 }
 
-/*----------------------------------WIN CONDITION-----------------------------*/
+/*----------------------------------Display on Game Win-----------------------------*/
 .heroes_win, .villains_win{
     position: absolute;
     top: 4%;
     right: 1%;
     width: 65%;
     height: 92%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.3);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -384,4 +384,26 @@ img.front {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/*----------------------------------Media Query-----------------------------*/
+@media only screen and (max-width: 1050px) and (orientation: portrait) {
+    .loading_screen{
+        visibility: hidden;
+    }
+    .logo{
+        position: absolute;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%);
+    }
+    .portrait_mode_statement{
+        display: block !important;
+        color: white;
+        display: block;
+        font-size: 2vw;
+        font-weight: 700;
+        font-family: orbitron, sans-serif;
+        text-align: center;
+    }
 }

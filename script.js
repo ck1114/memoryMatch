@@ -4,10 +4,12 @@ $(document).ready(function(){
     $('.stats_container').hide();
     $('.heroes_win').hide();
     $('.villains_win').hide();
+    $('.portrait_mode_statement').hide();
 });
 
 var game_mode;
 
+//OPERATIONS ON SCREEN LOAD
 function hero_selected(){
     $('.option_select_sound').trigger('play');
     $('.ultron').addClass('grayscale').removeClass('dropshadow');
@@ -111,18 +113,18 @@ function card_clicked() {
             second_card_clicked = null;
             match_counter += 1;
             matches++;
-            if(match_counter===total_possible_matches){
-                $('.game_board').fadeOut();
+            if(match_counter===total_possible_matches){ //WIN CONDITION
+                $('.game_board').delay(1500).fadeOut();
                 $('.win_sound').trigger('play');
                 $('.theme_song_1').trigger('pause');
                 setTimeout(function() {
                     $('.theme_song_2').trigger('play');
                 }, 2000);
                 if(game_mode === 'hero'){
-                    $('.heroes_win').fadeIn();
+                    $('.heroes_win').delay(1500).fadeIn();
                 }
                 else {
-                    $('.villains_win').fadeIn();
+                    $('.villains_win').delay(1500).fadeIn();
                 }
             }
         }
