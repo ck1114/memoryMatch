@@ -6,7 +6,7 @@
     <title>Avengers Memory Match</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="script.js"></script>
-    <!--<link rel="stylesheet" href="animate.css">-->
+    <link rel="stylesheet" href="animate.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Anton|Orbitron|Cinzel|Righteous|Poiret+One|Montserrat|Open+Sans|Helvetica+Neue">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -23,10 +23,10 @@
             <img class="ultron grayscale animated fadeInRightBig" src="assets/ultron.png">
         </div>
         <div class="select_hero animated fadeInLeftBig" onclick="hero_selected()">
-            <p>SELECT: HERO</p>
+            <p>SELECT: &nbsp;&nbsp; HERO</p>
         </div>
         <div class="select_villain animated fadeInLeftBig" onclick="villain_selected()">
-            <p>SELECT: VILLAIN</p>
+            <p>SELECT: &nbsp;&nbsp; VILLAIN</p>
         </div>
         <div class="select_play animated fadeInLeftBig">
             <p>PLAY</p>
@@ -56,10 +56,21 @@
         <div class="row row3"></div>
         <div class="row row4"></div>
     </div>
-    <audio autoplay loop preload="auto" src="audio/avengers_theme_song.mp3"></audio>
+    <div class="heroes_win">
+        <h1 class="dropshadow_2">ULTRON HAS BEEN DEFEATED</h1>
+        <div class="play_again" onclick="reset_game()">PLAY AGAIN</div>
+    </div>
+    <div class="villains_win">
+        <h1 class="dropshadow_2">AVENGERS HAVE BEEN DEFEATED</h1>
+        <div class="play_again" onclick="reset_game()">PLAY AGAIN</div>
+    </div>
+    <audio class="theme_song_1" loop preload="auto" src="audio/avengers_theme_song.mp3"></audio>
+    <audio class="theme_song_2" loop preload="auto" src="audio/thor_dark_world.mp3"></audio>
     <audio class="option_select_sound" src="audio/option_select.wav"></audio>
     <audio class="card_click_sound" src="audio/card_select.wav"></audio>
     <audio class="error_sound" src="audio/error_sound.wav"></audio>
     <audio class="match_sound" src="audio/match_sound.wav"></audio>
+    <audio class="win_sound" src="audio/win_sound.mp3"></audio>
+    <audio class="restart_sound" src="audio/restart_sound.wav"></audio>
 </body>
 </html>

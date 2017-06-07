@@ -1,7 +1,9 @@
 $(document).ready(function(){
     $('.logo').delay(2000).animate({ left: '17%', top:'15%'}, 1000);
+    $('.theme_song_1').trigger('play');
     $('.stats_container').hide();
-    // $('.logo_area').hide()
+    $('.heroes_win').hide();
+    $('.villains_win').hide();
 });
 
 var game_mode;
@@ -27,7 +29,7 @@ function villain_selected(){
 }
 
 function play_game(){
-    $('.option_select_sound').trigger('play');
+    $('.restart_sound').trigger('play');
     $('.loading_screen').addClass('animated fadeOut')
     if(game_mode === 'hero'){
         $('body').addClass('hero_background');
@@ -78,13 +80,13 @@ var games_played = 0;
 
 
 function display_stats(){
-    $(".games_played .value").text(games_played);
-    $(".attempts .value").text(attempts);
-    $(".accuracy .value").text(accuracy+"%");
+    $('.games_played .value').text(games_played);
+    $('.attempts .value').text(attempts);
+    $('.accuracy .value').text(accuracy+"%");
 }
 
 function card_clicked() {
-    if($(this).hasClass("matched")){
+    if($(this).hasClass('matched')){
         return;
     }
     if($(this).find('.back').css('display') == 'none'){
@@ -93,43 +95,46 @@ function card_clicked() {
     if(first_card_clicked===null){
         $('.card_click_sound').trigger('play');
         first_card_clicked= $(this);
-        $(first_card_clicked).find(".back").hide();
+        $(first_card_clicked).find('.back').hide();
     }
     else {
         second_card_clicked = $(this);
         $(second_card_clicked).find(".back").hide();
-        var first_card_img = $(first_card_clicked).find("img.front").attr("src")
-        var second_card_img = $(second_card_clicked).find("img.front").attr("src")
+        var first_card_img = $(first_card_clicked).find('img.front').attr('src')
+        var second_card_img = $(second_card_clicked).find('img.front').attr('src')
         attempts++;
-        if (first_card_img === second_card_img) {
-            $('.match_sound').prop("volume", 0.2).trigger('play');
-            $(first_card_clicked).addClass("matched");
-            $(second_card_clicked).addClass("matched");
+        if(first_card_img === second_card_img) {
+            $('.match_sound').prop('volume', 0.2).trigger('play');
+            $(first_card_clicked).addClass('matched');
+            $(second_card_clicked).addClass('matched');
             first_card_clicked = null;
             second_card_clicked = null;
             match_counter += 1;
             matches++;
-            // if(match_counter===total_possible_matches){
-            //     $(".card").hide();
-            //     var you_win = $("<h1>",{
-            //         text: "YOU WIN!",
-            //         class: "you_win",
-            //     });
-            //     $(".game_board").append(you_win);
-            // }
-            // else{
-            //     return "keep going";
-            // }
+            if(match_counter===total_possible_matches){
+                $('.game_board').fadeOut();
+                $('.win_sound').trigger('play');
+                $('.theme_song_1').trigger('pause');
+                setTimeout(function() {
+                    $('.theme_song_2').trigger('play');
+                }, 2000);
+                if(game_mode === 'hero'){
+                    $('.heroes_win').fadeIn();
+                }
+                else {
+                    $('.villains_win').fadeIn();
+                }
+            }
         }
         else{
             $('.error_sound').trigger('play');
-            $(".card").off();
+            $('.card').off();
             setTimeout(function(){
-                $(first_card_clicked).find(".back").show();
-                $(second_card_clicked).find(".back").show();
+                $(first_card_clicked).find('.back').show();
+                $(second_card_clicked).find('.back').show();
                 first_card_clicked = null;
                 second_card_clicked = null;
-                $(".card").click(card_clicked);
+                $('.card').click(card_clicked);
             },1500);
         }
         accuracy = Math.floor((matches / attempts) * 100);
@@ -144,6 +149,11 @@ function reset_game(){
     attempts=0;
     match_counter=0;
     display_stats();
+    $('.theme_song_2').trigger('pause');
+    $('.restart_sound').trigger('play');
+    $('.theme_song_1').prop('currentTime',0).trigger('play');
+    $('.heroes_win, .villains_win').hide();
+    $('.game_board').show();
     $('.row').empty();
     create_cards();
     $('.card').click(card_clicked);
