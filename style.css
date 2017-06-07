@@ -388,7 +388,7 @@ img.front {
 
 /*----------------------------------Media Query-----------------------------*/
 @media only screen and (max-width: 1050px) and (orientation: portrait) {
-    .loading_screen{
+    .loading_screen, .stats_container, .game_board{
         visibility: hidden;
     }
     .logo{
@@ -405,5 +405,16 @@ img.front {
         font-weight: 700;
         font-family: orbitron, sans-serif;
         text-align: center;
+    }
+}
+
+@media only screen and (orientation: landscape) {
+    html{
+        overflow: hidden;
+    }
+    body{
+        position: fixed;
+        overflow-x: hidden;
+        overflow-y: hidden;
     }
 }
