@@ -290,7 +290,7 @@ a:link, a:visited{
     color: white;
     font-size: 3vmax;
     font-weight: 700;
-    font-family: orbitron, sans-serif;
+    font-family: 'orbitron', sans-serif;
 }
 
 button.reset {
@@ -366,7 +366,7 @@ img.front {
     display: block;
     font-size: 5vmax;
     font-weight: 700;
-    font-family: orbitron, sans-serif;
+    font-family: 'orbitron', sans-serif;
 }
 
 .play_again{
@@ -403,7 +403,7 @@ img.front {
         display: block;
         font-size: 2vw;
         font-weight: 700;
-        font-family: orbitron, sans-serif;
+        font-family: 'orbitron', sans-serif;
         text-align: center;
     }
 }
